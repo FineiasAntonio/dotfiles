@@ -1,0 +1,76 @@
+﻿{
+    "layer": "top",
+    "position": "top",
+    "modules-left": ["hyprland/workspaces", "cpu", "memory"],
+    "modules-center": ["custom/music"],
+    "modules-right": ["pulseaudio",  "clock", "tray", "custom/lock", "custom/power"],
+
+    "hyprland/workspaces": {
+         "disable-scroll": true,
+         "sort-by-name": true,
+         "format": " {icon} ",
+         "format-icons": {
+             "default": "",
+             "active": ""
+         }
+     },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+
+    "custom/music": {
+        "format": "  {}",
+        "escape": true,
+        "interval": 5,
+        "tooltip": false,
+        "exec": "playerctl metadata --format='{{ title }}'",
+        "on-click": "playerctl play-pause",
+        "max-length": 50
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": " {}%",
+        "tooltip": true,
+        "tooltip-format": "Usado: {used:0.1f}GB\nLivre: {avail:0.1f}GB"
+    },
+
+    "clock": {
+        "timezone": "America/Sao_Paulo",
+        "format": " {:%H:%M - %d/%m/%Y}"
+    },
+
+    "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-muted": "󰝟 Mudo",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "󰂑",
+        "headset": "󰂑",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol"
+},
+
+    "custom/lock": {
+        "tooltip": false,
+        "on-click": "hyprlock",
+        "format": ""
+    },
+
+    "custom/power": {
+        "tooltip": false,
+        "on-click": "wlogout &",
+        "format": ""
+    }
+}
