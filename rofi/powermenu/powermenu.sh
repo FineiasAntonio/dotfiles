@@ -8,23 +8,14 @@ theme='style'
 uptime="`uptime -p | sed -e 's/up //g' | sed -e 's/hour/hr/g' | sed -e 's/minute/min/g'`"
 
 # # Options
-# hibernate=' hibernate'
-# shutdown=' Shutdown'
-# reboot='⟳ Reboot'
-# lock=' Lock'
-# suspend=' Suspend'
-# logout=' Logout'
-# yes=' Yes'
-# no=' No'
-# Options
 hibernate='Hibernate'
 shutdown='Shutdown'
 reboot='Reboot'
 lock='Lock'
 suspend='Suspend'
 logout='Logout'
-yes='yes'
-no='no'
+yes='Yes'
+no='No'
 
 # Rofi CMD
 rofi_cmd() {
@@ -54,7 +45,7 @@ run_rofi() {
 
 # Execute Command
 run_cmd() {
-	selected="$(confirm_exit)"
+	#selected="$(confirm_exit)"
 	echo "$selected"
 	if [[ "$selected" =~ "$yes" ]]; then
 		if [[ $1 == '--shutdown' ]]; then
@@ -88,11 +79,7 @@ case ${chosen} in
 		run_cmd --hibernate
         ;;
     $lock)
-		if [[ -x '/usr/bin/betterlockscreen' ]]; then
-			betterlockscreen -l
-		elif [[ -x '/usr/bin/i3lock' ]]; then
-			i3lock
-		fi
+		hyprlock
         ;;
     $suspend)
 		run_cmd --suspend
