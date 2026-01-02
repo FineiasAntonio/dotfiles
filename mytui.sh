@@ -18,7 +18,7 @@ instalar_pacote() {
 configurar_nvidia() {
     echo "🚀 Instalando drivers NVIDIA..."
     # Instala drivers e suporte EGL
-    instalar_pacote "nvidia-open-dkms nvidia-utils lib32-nvidia-utils nvidia-settings egl-gbm egl-wayland"
+    instalar_pacote "nvidia nvidia-utils lib32-nvidia-utils nvidia-settings linux-lts-headers egl-gbm egl-wayland"
 
     echo "⚙️ Configurando KMS e DRM..."
     
@@ -38,7 +38,7 @@ configurar_nvidia() {
     if grep -q "GRUB_CMDLINE_LINUX_DEFAULT=" /etc/default/grub; then
         # Verifica se o parâmetro já existe para não duplicar
         if ! grep -q "nvidia-drm.modeset=1" /etc/default/grub; then
-            sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="nvidia-drm.modeset=1 /' /etc/default/grub
+            sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="nvidia-drm.modeset=1 nvidia-drm.fbdev=1/' /etc/default/grub
             sudo grub-mkconfig -o /boot/grub/grub.cfg
             echo "✅ GRUB atualizado."
         else
