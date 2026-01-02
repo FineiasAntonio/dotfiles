@@ -46,8 +46,8 @@ run_rofi() {
 # Execute Command
 run_cmd() {
 	#selected="$(confirm_exit)"
-	echo "$selected"
-	if [[ "$selected" =~ "$yes" ]]; then
+	#echo "$selected"
+	if [[ true ]]; then
 		if [[ $1 == '--shutdown' ]]; then
 			systemctl poweroff
 		elif [[ $1 == '--reboot' ]]; then

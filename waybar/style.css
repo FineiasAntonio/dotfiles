@@ -33,6 +33,7 @@
 #workspaces button:hover {
   color: @sapphire;
   border-radius: 1rem;
+  background-color: transparent;
 }
 
 #custom-music,
@@ -41,11 +42,24 @@
 #clock,
 #battery,
 #pulseaudio,
-#custom-lock,
-#custom-power{
+#custom-power,
+#taskbar,
+#custom-notification { 
   background-color: @surface0;
   padding: 0.5rem 1rem;
   margin: 5px 0;
+}
+
+#taskbar {
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 1rem;
+}
+
+#taskbar button:hover {
+  background: transparent; /* Remove o fundo ao passar o mouse */
+  border: none;
+  box-shadow: none;
+  outline: none;
 }
 
 #clock {
@@ -76,8 +90,8 @@
 
 #pulseaudio {
   color: @maroon;
-  border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
+  border-radius: 0;
+  margin-left: 0;
 }
 
 #custom-music {
@@ -85,7 +99,7 @@
   border-radius: 1rem;
 }
 
-#custom-lock {
+#custom-notification {
     border-radius: 1rem 0px 0px 1rem;
     color: @lavender;
 }
@@ -102,11 +116,11 @@
 }
 
 #cpu {
-    color: @peach; /* Cor pêssego do Catppuccin */
+    color: @peach; /* Cor pï¿½ssego do Catppuccin */
     margin: 0 10px;
 }
 
 #memory {
-    color: @sky;   /* Cor azul céu do Catppuccin */
+    color: @sky;   /* Cor azul cï¿½u do Catppuccin */
     margin: 0 10px;
 }
