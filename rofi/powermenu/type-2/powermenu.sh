@@ -8,9 +8,10 @@
 ## Available Styles
 #
 ## style-1   style-2   style-3   style-4   style-5
+## style-6   style-7   style-8   style-9   style-10
 
 # Current Theme
-dir="$HOME/.config/rofi/powermenu/type-1"
+dir="$HOME/.config/rofi/powermenu/type-2"
 theme='style-1'
 
 # CMDs
@@ -18,25 +19,25 @@ uptime="`uptime -p | sed -e 's/up //g'`"
 host=`hostname`
 
 # Options
-shutdown=' Shutdown'
-reboot=' Reboot'
-lock=' Lock'
-suspend=' Suspend'
-logout=' Logout'
-yes=' Yes'
-no=' No'
+shutdown=''
+reboot=''
+lock=''
+suspend=''
+logout=''
+yes=''
+no=''
 
 # Rofi CMD
 rofi_cmd() {
 	rofi -dmenu \
-		-p "$host" \
+		-p "Uptime: $uptime" \
 		-mesg "Uptime: $uptime" \
 		-theme ${dir}/${theme}.rasi
 }
 
 # Confirmation CMD
 confirm_cmd() {
-	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
+	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 350px;}' \
 		-theme-str 'mainbox {children: [ "message", "listview" ];}' \
 		-theme-str 'listview {columns: 2; lines: 1;}' \
 		-theme-str 'element-text {horizontal-align: 0.5;}' \
